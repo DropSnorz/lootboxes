@@ -3,21 +3,9 @@
     <div id="app">
       <HeaderNav />
       <div class="container">
-        <img alt="Vue logo" src="./assets/sprites/chest1/chest_closed.png" class="my-4" />
-        <div class="row">
-          <div class="col-md-12">
-            <b-card title="Game Frame" sub-title="Game Layer">
-              <b-card-text>
-                Some quick example text to build on the
-                <em>card title</em> and make up the bulk of the card's
-                content.
-              </b-card-text>
-              <b-card-text>A second paragraph of text in the card.</b-card-text>
-              <a href="#" class="card-link">Card link</a>
-              <b-link href="#" class="card-link">Another link</b-link>
-            </b-card>
-          </div>
-        </div>
+        <transition name="fade" mode="out-in">
+          <router-view></router-view>
+        </transition>
       </div>
       <FooterNav />
     </div>
@@ -54,4 +42,17 @@ export default {
   top: 0;
   background-image: url("./assets/background.png");
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
 </style>
