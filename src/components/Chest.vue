@@ -25,13 +25,15 @@
             <template v-slot:img>
               <img
                 class="d-block img-fluid chest-image"
-                :src="require(`@/assets/chests/${chests.getChest(chestId).imageId}/chest.png`)"
+                :src="require(`@/assets/chests/${chests.getChest(chestId).imageId}/chest${chestState}.png`)"
                 alt="image slot"
                 @click="openChest(chestId)"
               />
             </template>
           </b-carousel-slide>
         </b-carousel>
+        <RewardCannon :trigger="cannonTrigger" @eventComleted="cannonEventCompleted()"/>
+
       </div>
     </div>
   </div>
@@ -40,9 +42,13 @@
 <script>
 
 import Chests from '@/game/Chests'
+import RewardCannon from '@/components/ui/RewardCannon'
 
 export default {
   name: "Chest",
+  components: {
+    RewardCannon
+  },
   props: {
     msg: String
   },
@@ -50,14 +56,31 @@ export default {
     return {
       slide: 0,
       sliding: null,
+      cannonTrigger: false,
       playerChests: this.$root.$data.player.chests,
       chests: Chests
     };
   },
+  computed : {
+    chestState : function () {
+      if(this.cannonTrigger == true) {
+        return '_filled'
+      }
+      return ''
+    }
+  },
   methods: {
     openChest(chestId) {
-      this.$root.$data.player.updateChest(chestId, -1);
-      this.$forceUpdate();
+
+      if(this.cannonTrigger == false) {
+        this.$root.$data.player.updateChest(chestId, -1);
+        this.$forceUpdate();
+        this.cannonTrigger = true
+      }
+    },
+
+    cannonEventCompleted(){
+      this.cannonTrigger = false
     }
   }
 };
@@ -68,6 +91,7 @@ export default {
 #carousel-chest {
   margin-top: 50px;
   height: 400px;
+  
 }
 
 .chest-image {
