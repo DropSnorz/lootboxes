@@ -67,11 +67,12 @@ export default {
 <style scoped>
 #carousel-chest {
   margin-top: 50px;
-  height: 300px;
+  height: 400px;
 }
 
 .chest-image {
   margin: 0 auto;
+  height: 400px;
 }
 </style>
 

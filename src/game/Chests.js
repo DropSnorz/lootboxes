@@ -1,10 +1,4 @@
 class Chest {
-  id
-  label
-  rewards
-  price
-  imageId
-
   constructor(id, label, rewards, price, imageId) {
     this.id = id
     this.label = label
@@ -18,7 +12,7 @@ class Chest {
 class Chests {
   static chests = [
     new Chest('chest1',
-      "Wooden Chest",
+      "Rookie Chest",
       [
         { type: "currency", id: "gold", amount: 1100 },
         { type: "currency", id: "gem", amount: 1 },
@@ -26,13 +20,29 @@ class Chests {
       { id: "gold", amount: 1000 },
       'chest1'),
     new Chest('chest2',
+      "Asmatic Chest",
+      [
+        { type: "currency", id: "gold", amount: 13000 },
+        { type: "currency", id: "gem", amount: 5 },
+      ],
+      { id: "gold", amount: 10000 },
+      'chest2'),
+    new Chest('chest3',
       "Bronze Chest",
       [
         { type: "currency", id: "gold", amount: 13000 },
         { type: "currency", id: "gem", amount: 5 },
       ],
       { id: "gold", amount: 10000 },
-      'chest1'),
+      'chest3'),
+    new Chest('chest4',
+      "Bronze Chest",
+      [
+        { type: "currency", id: "gold", amount: 13000 },
+        { type: "currency", id: "gem", amount: 5 },
+      ],
+      { id: "gold", amount: 10000 },
+      'chest4'),
   ]
 
   static getChests() {
