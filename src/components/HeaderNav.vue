@@ -1,5 +1,5 @@
 <template>
-  <b-navbar type="light" variant="light">
+  <b-navbar fixed="top" type="light" variant="light">
       <b-navbar-brand href="#">Lootboxes.io</b-navbar-brand>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">

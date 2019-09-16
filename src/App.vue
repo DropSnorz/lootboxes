@@ -1,14 +1,12 @@
 <template>
-  <div class="site-container">
-    <div id="app">
-      <HeaderNav />
-      <div class="container">
-        <transition name="fade" mode="out-in">
-          <router-view></router-view>
-        </transition>
-      </div>
-      <FooterNav />
+  <div id="app">
+    <HeaderNav />
+    <div id="main-container" class="container">
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </div>
+    <FooterNav />
   </div>
 </template>
 
@@ -26,6 +24,12 @@ export default {
 </script>
 
 <style>
+
+body {
+  background-image: url("./assets/background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -33,13 +37,10 @@ export default {
   color: #2c3e50;
 }
 
-.site-container {
-  position: absolute;
-  width: 100%;
-  min-height: 100vh;
-  height: 100vh;
-  top: 0;
-  background-image: url("./assets/background.png");
+#main-container {
+  /* Margin to adjust document with fixed navbars*/
+  margin-top: 70px;
+  margin-bottom: 70px;
 }
 
 .fade-enter-active,
