@@ -73,6 +73,8 @@ export default {
     openChest(chestId) {
 
       if(this.cannonTrigger == false) {
+        let rewards = this.chests.getChest(chestId).open()
+        this.$root.$data.player.pushRewards(rewards)
         this.$root.$data.player.updateChest(chestId, -1);
         this.$forceUpdate();
         this.cannonTrigger = true

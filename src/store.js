@@ -1,6 +1,13 @@
 export default {
 
     player: {
+
+        pushRewards(rewards){
+            for(let reward of rewards){
+                updateInventories(this[reward.type], reward.id, reward.amount)
+            }
+        },
+
         currencies: {
             gold: 100000,
             gem: 0

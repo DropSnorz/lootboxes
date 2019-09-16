@@ -4,7 +4,7 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <CurrencyBadge :value=this.$root.$data.player.currencies.gold image="gold.png" />
-        <CurrencyBadge :value=0 image="gem.png" />
+        <CurrencyBadge :value=this.$root.$data.player.currencies.gem image="gem.png" />
         <CurrencyBadge :value=0 image="diamond.png" />
         <CurrencyBadge :value=0 image="sapphire.png" />
         <CurrencyBadge :value=0 image="heart.png" />
