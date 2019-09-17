@@ -40,7 +40,7 @@ body {
 #main-container {
   /* Margin to adjust document with fixed navbars*/
   margin-top: 70px;
-  margin-bottom: 70px;
+  margin-bottom: 95px;
 }
 
 .fade-enter-active,
