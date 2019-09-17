@@ -13,11 +13,33 @@ export default {
     value: Number,
     image: String
   },
+  data: function() {
+    return {
+      displayNumber: this.value ? this.value : 0,
+      interval: false
+    };
+  },
   computed: {
-    displayNumber: function() {
+    number: function(){
       return this.value ? this.value : 0
     }
   },
+  watch: {
+    number: function() {
+      clearInterval(this.interval)
+      if (this.number == this.displayNumber) {
+        return;
+      }
+      this.interval = window.setInterval(
+        function() {
+          if (this.displayNumber != this.number) {
+            let change = (this.number - this.displayNumber) / 10
+            change = change >= 0 ? Math.ceil(change) : Math.floor(change)
+            this.displayNumber = this.displayNumber + change
+          }
+        }.bind(this),20);
+    }
+  }
 };
 </script>
 
