@@ -1,6 +1,6 @@
 <template>
   <b-navbar fixed="top" type="light" variant="light">
-      <b-navbar-brand href="#">Lootboxes.io</b-navbar-brand>
+      <b-navbar-brand href="#" class="d-none d-lg-block">Lootboxes.io</b-navbar-brand>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <CurrencyBadge :value=this.$root.$data.player.currencies.gold image="gold.png" />

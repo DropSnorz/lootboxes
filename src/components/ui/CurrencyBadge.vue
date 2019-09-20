@@ -1,7 +1,7 @@
 <template>
   <a class="btn icon-btn btn-default" href="#">
     <img :src="require(`@/assets/currencies/${image}`)" class="badge-icon img-circle text-warning" />
-    {{this.displayNumber}}
+    {{this.displayNumber | numeralFormat('0.[00]a')}}
   </a>
 </template>
 
@@ -55,5 +55,12 @@ export default {
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  text-align: left;
+}
+
+@media(min-width: 992px){
+  .icon-btn {
+    min-width: 110px;
+  }
 }
 </style>
