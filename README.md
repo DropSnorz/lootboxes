@@ -5,3 +5,4 @@ Surprise mechanics based game to provide players with a sense of pride and accom
 ## Credits
 
 Fluffy Trease Chest (by [Jaqueline Martin](https://www.patreon.com/darkparadigmgames))
+Items icons (by [Ravenmore](http://dycha.net/))

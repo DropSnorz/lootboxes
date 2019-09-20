@@ -1,8 +1,8 @@
 <template>
 
 <div class="reward-cannon"> 
-  <transition name="slide-fade" v-for="(particle, index) in this.particles" :key="index" v-on:after-enter="afterEnter">
-    <img v-if="trigger" class="particle" :src="require(`@/assets/currencies/gold.png`)" :style="{top: particle.top + 'px', left: particle.left + 'px'}"/>
+  <transition name="slide-fade" v-for="(particle, index) in particles" :key="index" v-on:after-enter="afterEnter" appear>
+    <img v-if="show" class="particle" :src="require(`@/assets/${particle.image}.png`)" :style="{top: particle.top + 'px', left: particle.left + 'px'}"/>
   </transition>
 
 </div>
@@ -14,25 +14,42 @@
 export default {
   name: "RewardCannon",
   props: {
-    trigger: Boolean
+    rewards: Array
   },
   data: function () {
     return {
-      show: true
+      show: false,
     }
   },
   computed: {
     particles: function () {
       let particles = []
-
-      for(let i=0; i < 50; i++){
-        particles.push({top: Math.floor(Math.random() * 100) + 200 , left: Math.floor(Math.random() * 400) - 200})
+      for (let reward of this.rewards){
+        if(reward.amount <= 10 ){
+          for(let i=0; i < reward.amount; i++){
+          particles.push({image: reward.type +'/' + reward.id, top: Math.floor(Math.random() * 100) + 200 , left: Math.floor(Math.random() * 400) - 200})
+          }
+        }
+        else {
+          for(let i=0; i < 20; i++) {
+            particles.push({image: reward.type +'/' + reward.id, top: Math.floor(Math.random() * 100) + 200 , left: Math.floor(Math.random() * 400) - 200})
+          }
+        }
       }
       return particles
+    }
+
+  },
+  watch: {
+    particles: function (){
+        if(this.particles.length > 0){
+        this.show = true;
+      }
     }
   },
   methods: {
     afterEnter() {
+      this.show = false;
       this.$emit('eventComleted')
     }
   }

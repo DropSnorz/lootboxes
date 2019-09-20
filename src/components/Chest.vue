@@ -32,7 +32,7 @@
             </template>
           </b-carousel-slide>
         </b-carousel>
-        <RewardCannon :trigger="cannonTrigger" @eventComleted="cannonEventCompleted()"/>
+        <RewardCannon :rewards="cannonRewards" @eventComleted="cannonEventCompleted()"/>
 
       </div>
     </div>
@@ -57,6 +57,7 @@ export default {
       slide: 0,
       sliding: null,
       cannonTrigger: false,
+      cannonRewards: [],
       playerChests: this.$root.$data.player.chests,
       chests: Chests
     };
@@ -75,9 +76,11 @@ export default {
       if(this.cannonTrigger == false) {
         let rewards = this.chests.getChest(chestId).open()
         this.$root.$data.player.pushRewards(rewards)
-        this.$root.$data.player.updateChest(chestId, -1);
-        this.$forceUpdate();
+        this.$root.$data.player.updateChest(chestId, -1)
+        this.$forceUpdate()
         this.cannonTrigger = true
+        this.cannonRewards = rewards
+
       }
     },
 

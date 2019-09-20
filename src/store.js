@@ -21,7 +21,7 @@ export default {
         chests: {
         },
         updateChest(id, amount) {
-            updateInventories(this.chests, id, amount)
+            updateInventories(this.chests, id, amount, true)
         },
         items: [
 
@@ -31,13 +31,13 @@ export default {
 
 }
 
-function updateInventories(list, id, amount){
+function updateInventories(list, id, amount, removeAttr = false){
     if (list[id] == undefined) {
         list[id] = amount
     } else {
         list[id] = list[id] + amount;
     }
-    if(list[id] == 0){
+    if(removeAttr && list[id] == 0){
         delete list[id]
     }
 }

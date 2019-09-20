@@ -5,11 +5,10 @@
       <b-navbar-nav class="ml-auto">
         <CurrencyBadge :value=this.$root.$data.player.currencies.gold image="gold.png" />
         <CurrencyBadge :value=this.$root.$data.player.currencies.gem image="gem.png" />
-        <CurrencyBadge :value=0 image="diamond.png" />
-        <CurrencyBadge :value=0 image="sapphire.png" />
-        <CurrencyBadge :value=0 image="heart.png" />
-        <CurrencyBadge :value=0 image="void.png" />
-        
+        <CurrencyBadge :value=this.$root.$data.player.currencies.diamond image="diamond.png" />
+        <CurrencyBadge :value=this.$root.$data.player.currencies.sapphire image="sapphire.png" />
+        <CurrencyBadge :value=this.$root.$data.player.currencies.heart image="heart.png" />
+        <CurrencyBadge :value=this.$root.$data.player.currencies.void image="void.png" />
       </b-navbar-nav>
   </b-navbar>
 </template>

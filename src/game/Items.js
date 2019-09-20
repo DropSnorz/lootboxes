@@ -8,8 +8,7 @@ class Item {
 
 class Items {
     static items = [
-        new Item('gold', "Gold"),
-        new Item('gem', "Gem")
+        new Item('backpack', 'Random lot')
     ]
 
     static getItems(){
