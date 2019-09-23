@@ -1,30 +1,66 @@
 <template>
   <div id="app">
-    <HeaderNav />
-    <div id="main-container" class="container">
-      <transition name="fade" mode="out-in">
-        <router-view></router-view>
-      </transition>
-    </div>
-    <FooterNav />
+    <transition name="fade" mode="out-in">
+      <Preloader v-if="isLoading" />
+      <div v-else>
+        <HeaderNav />
+        <div id="main-container" class="container">
+          <transition name="fade" mode="out-in">
+            <router-view></router-view>
+          </transition>
+        </div>
+        <FooterNav />
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
 import HeaderNav from "./components/HeaderNav.vue";
 import FooterNav from "./components/FooterNav.vue";
+import Preloader from "./components/Preloader";
 
 export default {
   name: "app",
   components: {
     HeaderNav,
-    FooterNav
+    FooterNav,
+    Preloader
+  },
+  data: function() {
+    return {
+      isLoading: true,
+      isRunning: false,
+      time: 0
+    };
+  },
+  mounted: function() {
+    this.toggleTimer();
+  },
+  methods: {
+    toggleTimer() {
+      var interval = setInterval(this.incrementTime, 1000);
+      if (this.isRunning) {
+        clearInterval(interval);
+      }
+      this.isRunning = this.isRunning ? false : true;
+    },
+    incrementTime() {
+      this.time = parseInt(this.time) + 1;
+    }
+  },
+  watch: {
+    time: function() {
+      if (this.time > 5) {
+        this.toggleTimer();
+        this.isLoading = false;
+      }
+    }
   }
 };
 </script>
 
 <style>
-
 body {
   background-image: url("./assets/background.png");
   background-repeat: no-repeat;
@@ -52,7 +88,6 @@ body {
 
 .fade-enter,
 .fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
-
 </style>
