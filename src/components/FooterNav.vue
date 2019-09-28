@@ -1,6 +1,5 @@
 <template>
   <b-navbar fixed="bottom" type="dark" variant="dark" class="navbar-icon-top navbar-expand-sm">
-    <!-- Center aligned nav items -->
     <b-navbar-nav class="mx-auto">
       <b-nav-item href="#" to="/"><font-awesome-icon icon="gifts" class="fa" />Chests</b-nav-item>
       <b-nav-item href="#" to="store"><font-awesome-icon icon="gem" class="fa" />Store</b-nav-item>
@@ -20,7 +19,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 .navbar {
@@ -140,6 +138,5 @@ export default {
     top: -7px;
   }
 }
-
 
 </style>

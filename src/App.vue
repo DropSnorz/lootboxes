@@ -27,21 +27,22 @@ export default {
     FooterNav,
     Preloader
   },
-  data: function() {
+  data() {
     return {
       isLoading: true,
       isRunning: false,
+      interval: false,
       time: 0
-    };
+    }
   },
-  mounted: function() {
+  mounted() {
     this.toggleTimer();
   },
   methods: {
     toggleTimer() {
-      var interval = setInterval(this.incrementTime, 1000);
+      this.interval = setInterval(this.incrementTime, 1000);
       if (this.isRunning) {
-        clearInterval(interval);
+        clearInterval(this.interval);
       }
       this.isRunning = this.isRunning ? false : true;
     },
@@ -50,7 +51,7 @@ export default {
     }
   },
   watch: {
-    time: function() {
+    time() {
       if (this.time > 5) {
         this.toggleTimer();
         this.isLoading = false;

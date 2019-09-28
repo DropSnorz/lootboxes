@@ -1,14 +1,10 @@
 <template>
-
 <div class="reward-cannon"> 
   <transition name="slide-fade" v-for="(particle, index) in particles" :key="index" v-on:after-enter="afterEnter" appear>
     <img v-if="show" class="particle" :src="require(`@/assets/${particle.image}.png`)" :style="{top: particle.top + 'px', left: particle.left + 'px'}"/>
   </transition>
-
 </div>
-
 </template>
-
 
 <script>
 export default {
@@ -16,13 +12,13 @@ export default {
   props: {
     rewards: Array
   },
-  data: function () {
+  data() {
     return {
       show: false,
     }
   },
   computed: {
-    particles: function () {
+    particles() {
       let particles = []
       for (let reward of this.rewards){
         if(reward.amount <= 10 ){
@@ -38,10 +34,9 @@ export default {
       }
       return particles
     }
-
   },
   watch: {
-    particles: function (){
+    particles(){
         if(this.particles.length > 0){
         this.show = true;
       }

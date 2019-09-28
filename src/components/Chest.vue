@@ -16,7 +16,6 @@
           background="rgba(0,0,0,0)"
           style="text-shadow: 1px 1px 2px #333;"
         >
-          <!-- Text slides with image -->
           <b-carousel-slide
             v-for="(chestAmount, chestId) in playerChests"
             :key="chestId"
@@ -25,7 +24,7 @@
             <template v-slot:img>
               <img
                 class="d-block img-fluid chest-image"
-                :src="require(`@/assets/chests/${chests.getChest(chestId).imageId}/chest${chestState}.png`)"
+                :src="require(`@/assets/chests/${chestId}/chest${chestState}.png`)"
                 alt="image slot"
                 @click="openChest(chestId)"
               />
@@ -33,7 +32,6 @@
           </b-carousel-slide>
         </b-carousel>
         <RewardCannon :rewards="cannonRewards" @eventComleted="cannonEventCompleted()"/>
-
       </div>
     </div>
   </div>
@@ -72,7 +70,6 @@ export default {
   },
   methods: {
     openChest(chestId) {
-
       if(this.cannonTrigger == false) {
         let rewards = this.chests.getChest(chestId).open()
         this.$root.$data.player.pushRewards(rewards)
@@ -80,10 +77,8 @@ export default {
         this.$forceUpdate()
         this.cannonTrigger = true
         this.cannonRewards = rewards
-
       }
     },
-
     cannonEventCompleted(){
       this.cannonTrigger = false
     }
@@ -91,12 +86,10 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #carousel-chest {
   margin-top: 50px;
   height: 400px;
-  
 }
 
 .chest-image {

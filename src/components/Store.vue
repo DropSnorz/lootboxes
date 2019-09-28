@@ -5,7 +5,7 @@
         <b-list-group flush>
           <b-list-group-item href="#" v-for="(chest, index) in chests" :key="chest.id">
             <img
-              :src="require(`@/assets/chests/${chest.imageId}/chest.png`)"
+              :src="require(`@/assets/chests/${chest.id}/chest.png`)"
               alt="chest-image"
               class="chest-image"
             />
@@ -28,7 +28,7 @@ import Chests from "@/game/Chests";
 
 export default {
   name: "Store",
-  data: function() {
+  data() {
     return {
       chests: Chests.getChests()
     };
@@ -48,7 +48,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .chest-image {
   height: 50px;

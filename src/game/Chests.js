@@ -22,7 +22,6 @@ class Chest {
   } 
 }
 
-
 class Chests {
   static chests = [
     new Chest('chest1',
@@ -31,8 +30,7 @@ class Chests {
         { type: "currencies", id: "gold", amount: 1300 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "gold", amount: 1000 },
-      'chest1'),
+      { id: "gold", amount: 1000 }),
     new Chest('chest2',
       "Asthmatic Chest",
       [
@@ -40,8 +38,7 @@ class Chests {
         { type: "currencies", id: "gem", amount: 1 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "gold", amount: 10000 },
-      'chest2'),
+      { id: "gold", amount: 10000 }),
     new Chest('chest3',
       "Emotional Chest",
       [
@@ -49,8 +46,7 @@ class Chests {
         { type: "currencies", id: "gem", amount: 5 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "gold", amount: 100000 },
-      'chest3'),
+      { id: "gold", amount: 100000 }),
     new Chest('chest4',
       "Drunk Chest",
       [
@@ -58,8 +54,7 @@ class Chests {
         { type: "currencies", id: "diamond", amount: 1 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "gem", amount: 100 },
-      'chest4'),
+      { id: "gem", amount: 100 }),
       new Chest('chest5',
       "Modest Chest",
       [
@@ -67,8 +62,7 @@ class Chests {
         { type: "currencies", id: "diamond", amount: 10 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "gem", amount: 1000 },
-      'chest5'),
+      { id: "gem", amount: 1000 }),
     new Chest('chest6',
       "Hesitant Chest",
       [
@@ -76,8 +70,7 @@ class Chests {
         { type: "currencies", id: "diamond", amount: 5 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "gem", amount: 10000 },
-      'chest6'),
+      { id: "gem", amount: 10000 }),
     new Chest('chest7',
       "Curious Chest",
       [
@@ -85,8 +78,7 @@ class Chests {
         { type: "currencies", id: "sapphire", amount: 1 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "diamond", amount: 1000 },
-      'chest7'),
+      { id: "diamond", amount: 100 }),
     new Chest('chest8',
       "Peaceful Chest",
       [
@@ -94,8 +86,7 @@ class Chests {
         { type: "currencies", id: "sapphire", amount: 1 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "diamond", amount: 1000 },
-      'chest8'),
+      { id: "diamond", amount: 1000 }),
     new Chest('chest9',
       "Respectful Chest",
       [
@@ -103,8 +94,7 @@ class Chests {
         { type: "currencies", id: "sapphire", amount: 1 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "diamond", amount: 10000 },
-      'chest9'),
+      { id: "diamond", amount: 10000 }),
     new Chest('chest10',
       "Generous Chest",
       [
@@ -112,8 +102,7 @@ class Chests {
         { type: "currencies", id: "heart", amount: 5 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "sapphire", amount: 1000 },
-      'chest10'),
+      { id: "sapphire", amount: 1000 }),
     new Chest('chest11',
       "Wonderful Chest",
       [
@@ -121,8 +110,7 @@ class Chests {
         { type: "currencies", id: "heart", amount: 5 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "sapphire", amount: 10000 },
-      'chest11'),
+      { id: "sapphire", amount: 10000 }),
     new Chest('chest12',
       "Dark Chest",
       [
@@ -130,8 +118,7 @@ class Chests {
         { type: "currencies", id: "void", amount: 1 },
         { type: "items", id: "backpack", amount: 2 },
       ],
-      { id: "heart", amount: 10000 },
-      'chest12'),
+      { id: "heart", amount: 10000 }),
   ]
 
   static getChests() {
