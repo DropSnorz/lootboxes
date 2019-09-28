@@ -1,43 +1,26 @@
 <template>
   <a class="btn icon-btn btn-default" href="#">
     <img :src="require(`@/assets/currencies/${image}`)" class="badge-icon img-circle text-warning" />
-    {{this.displayNumber | numeralFormat('0.[00]a')}}
+    <AnimatedNumber :value="value" :formatValue="formatValue"/>
   </a>
 </template>
 
 
 <script>
+import numeral from 'numeral';
+import AnimatedNumber from '@/components/ui/AnimatedNumber'
 export default {
   name: "CurrencyBadge",
+  components: {
+    AnimatedNumber
+  },
   props: {
     value: Number,
     image: String
   },
-  data: function() {
-    return {
-      displayNumber: this.value ? this.value : 0,
-      interval: false
-    };
-  },
-  computed: {
-    number: function(){
-      return this.value ? this.value : 0
-    }
-  },
-  watch: {
-    number: function() {
-      clearInterval(this.interval)
-      if (this.number == this.displayNumber) {
-        return;
-      }
-      this.interval = window.setInterval(
-        function() {
-          if (this.displayNumber != this.number) {
-            let change = (this.number - this.displayNumber) / 10
-            change = change >= 0 ? Math.ceil(change) : Math.floor(change)
-            this.displayNumber = this.displayNumber + change
-          }
-        }.bind(this),20);
+  methods: {
+    formatValue(value){
+      return numeral(Math.floor(value)).format('0.[00]a')
     }
   }
 };
