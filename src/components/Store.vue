@@ -11,7 +11,7 @@
             />
             {{chest.label}}
             <span class="float-right">
-              <b-button @click="buyChest(index)">
+              <b-button variant="success" @click="buyChest(index)">
                 <img :src="require(`@/assets/currencies/${chest.price.id}.png`)" alt="chest-image" class="currency-icon" />
                 {{chest.price.amount | numeralFormat('0,0')}}
               </b-button>

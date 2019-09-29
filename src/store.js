@@ -14,7 +14,7 @@ export default {
 
     // Currency inventory
     currencies: {
-      gold: 10000,
+      gold: 1000,
       gem: 0
     },
 
@@ -25,7 +25,7 @@ export default {
 
     // Chests inventory
     chests: {
-      chest3: 1
+      chest1: 1
     },
     updateChest(id, amount) {
       updateInventories(this.chests, id, amount, true)

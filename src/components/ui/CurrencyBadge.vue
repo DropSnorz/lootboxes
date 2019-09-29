@@ -39,6 +39,8 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   text-align: left;
+  float: left; 
+  white-space: nowrap;
 }
 
 @media(min-width: 992px){

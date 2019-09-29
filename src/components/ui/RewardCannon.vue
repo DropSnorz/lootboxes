@@ -73,8 +73,8 @@ export default {
   transition: all 1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
  .slide-fade-enter-to {
-  left: 400px !important; 
-  top: -200px !important;
+  left: 300px !important; 
+  top: -150px !important;
   opacity: 0;
 }
 

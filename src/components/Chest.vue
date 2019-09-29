@@ -2,8 +2,8 @@
   <div>
     <div class="row">
       <div class="col-md-12">
-        <b-card title="No more chests :(" v-if="Object.keys(playerChests).length === 0">
-          <b-button to="/store" class="float-right">Buy chests</b-button>
+        <b-card class="mt-4" title="No more chests :(" v-if="Object.keys(playerChests).length === 0">
+          <b-button variant="success" to="/store" class="float-right">Buy chests</b-button>
         </b-card>
         <b-carousel
           v-else
@@ -89,17 +89,11 @@ export default {
 <style scoped>
 #carousel-chest {
   margin-top: 50px;
-  height: 400px;
+  max-height: 400px;
 }
 
 .chest-image {
   margin: 0 auto;
-  height: 400px;
-}
-</style>
-
-<style>
-.carousel-caption {
-  position: static;
+  max-height: 400px;
 }
 </style>
