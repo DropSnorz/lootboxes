@@ -1,7 +1,11 @@
 # lootboxes
 
 Surprise mechanics based game designed to provide players with a sense of pride and accomplishment for unlocking different things.
-Pre-order early access to the open beta [now](https://dropsnorz.github.io/lootboxes).
+Of course, and even if it's a parodic game, you can pre-order an early access to the open beta [now](https://dropsnorz.github.io/lootboxes).
+
+## Overview
+
+![lootbox-screenshot](doc/screenshot.png)
 
 ## Contributing
 
@@ -17,16 +21,16 @@ Feel free to add more gambling stuff like slot machines, wheel of fortunes, etc.
 Here is a list of things to implement.
 
 ### Features Ideas
-* Local storage (Save player data)
+* Local storage (Save player progression)
 * Settings Menu (Reset progression, game options)
-* Complex rewards and currency usage
+* More complex rewards and currency usage (idle game reward curve)
 * Preload assets (+ use spritesheets instead of multiple images)
 
 ### Game modes Ideas
 * Slot machines
 * Wheel of fortune
 * Gacha mechanics
-* Timer gameplays (Wait for rewards)
+* Timer / idle gameplays (Wait for rewards)
 * Premium mode with higher loot rates
 * Currencies exchange market
 
