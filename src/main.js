@@ -21,6 +21,8 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 
+store.mount()
+
 new Vue({
   router,
   data: store,
