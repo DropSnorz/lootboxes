@@ -15,7 +15,11 @@ export default {
     // Items inventory
     items: [
 
-    ]
+    ],
+    
+    options: {
+      audioEnabled: true
+    }
 
   },
 
