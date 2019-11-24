@@ -11,7 +11,7 @@
         <CurrencyBadge :value=this.$root.$data.player.currencies.void image="void.png" />
       </b-navbar-nav>
 
-      <b-modal id="modal-options" title="Options">
+      <b-modal id="modal-options" title="Options" :no-close-on-backdrop="true" :ok-only="true">
         <Options />
       </b-modal>
   </b-navbar>

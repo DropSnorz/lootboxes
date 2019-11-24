@@ -13,9 +13,9 @@ export default {
       chest1: 1
     },
     // Items inventory
-    items: [
+    items: {
 
-    ],
+    },
     
     options: {
       audioEnabled: true
@@ -44,12 +44,18 @@ export default {
     this.persist()
   },
 
+  /**
+   * Mount player save from browser localStorage
+   */
   mount() {
     if(localStorage.getItem('player')) {
       this.player = JSON.parse(localStorage.getItem('player'))
     }
   },
 
+  /**
+   * Persist user data in browser localStorage
+   */
   persist() {
     const playerData = JSON.stringify(this.player);
     localStorage.setItem('player', playerData);
