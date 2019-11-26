@@ -1,16 +1,6 @@
 export default {
 
   player: {
-    
-    /**
-     * Dispatch rewards list to player inventories
-     * @param {Array} rewards 
-     */
-    pushRewards(rewards) {
-      for (let reward of rewards) {
-        updateInventories(this[reward.type], reward.id, reward.amount)
-      }
-    },
 
     // Currency inventory
     currencies: {
@@ -18,25 +8,59 @@ export default {
       gem: 0
     },
 
-    updateCurrency(id, amount) {
-      updateInventories(this.currencies, id, amount)
-
-    },
-
     // Chests inventory
     chests: {
       chest1: 1
     },
-    updateChest(id, amount) {
-      updateInventories(this.chests, id, amount, true)
-    },
-
     // Items inventory
-    items: [
+    items: {
 
-    ]
+    },
+    
+    options: {
+      audioEnabled: true
+    }
 
+  },
+
+  /**
+ * Dispatch rewards list to player inventories
+ * @param {Array} rewards 
+ */
+  pushRewards(rewards) {
+    for (let reward of rewards) {
+      updateInventories(this.player[reward.type], reward.id, reward.amount)
+      this.persist()
+    }
+  },
+
+  updateCurrency(id, amount) {
+    updateInventories(this.player.currencies, id, amount)
+    this.persist()
+  },
+
+  updateChest(id, amount) {
+    updateInventories(this.player.chests, id, amount, true)
+    this.persist()
+  },
+
+  /**
+   * Mount player save from browser localStorage
+   */
+  mount() {
+    if(localStorage.getItem('player')) {
+      this.player = JSON.parse(localStorage.getItem('player'))
+    }
+  },
+
+  /**
+   * Persist user data in browser localStorage
+   */
+  persist() {
+    const playerData = JSON.stringify(this.player);
+    localStorage.setItem('player', playerData);
   }
+
 }
 
 /**
@@ -50,9 +74,10 @@ function updateInventories(list, id, amount, removeAttr = false) {
   if (list[id] == undefined) {
     list[id] = amount
   } else {
-    list[id] = list[id] + amount;
+    list[id] = list[id] + amount
   }
   if (removeAttr && list[id] == 0) {
     delete list[id]
   }
 }
+

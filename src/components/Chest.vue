@@ -71,11 +71,14 @@ export default {
   methods: {
     openChest(chestId) {
       if(this.cannonTrigger == false) {
-        let audio = new Audio(require('@/assets/sounds/loot.wav'))
-        audio.play()
+
+        if(this.$root.$data.player.options.audioEnabled) {
+          let audio = new Audio(require('@/assets/sounds/loot.wav'))
+          audio.play()
+         }
         let rewards = this.chests.getChest(chestId).open()
-        this.$root.$data.player.pushRewards(rewards)
-        this.$root.$data.player.updateChest(chestId, -1)
+        this.$root.$data.pushRewards(rewards)
+        this.$root.$data.updateChest(chestId, -1)
         this.$forceUpdate()
         this.cannonTrigger = true
         this.cannonRewards = rewards

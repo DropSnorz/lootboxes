@@ -53,8 +53,8 @@ export default {
       let chestCost = selectedChest.price.amount;
 
       if (this.$root.$data.player.currencies[currencyId] >= chestCost) {
-        this.$root.$data.player.updateCurrency(currencyId, -chestCost);
-        this.$root.$data.player.updateChest(selectedChest.id, 1);
+        this.$root.$data.updateCurrency(currencyId, -chestCost);
+        this.$root.$data.updateChest(selectedChest.id, 1);
       }
     }
   }
