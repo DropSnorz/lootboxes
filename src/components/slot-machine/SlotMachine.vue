@@ -32,10 +32,9 @@ export default {
       canlock: true,
       waslocked: false,
       audio: {
-        barWin: new Audio('https://freesound.org/data/previews/337/337049_3232293-lq.mp3'),
-        win: new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3'),
-        insertCoin: new Audio('https://freesound.org/data/previews/276/276091_5123851-lq.mp3'),
-        bigwin: new Audio('https://freesound.org/data/previews/270/270319_5123851-lq.mp3')
+        barWin: new Audio(require('@/assets/sounds/slot-machine-barwin.mp3')),
+        win: new Audio(require('@/assets/sounds/slot-machine-win.mp3')),
+        insertCoin: new Audio(require('@/assets/sounds/slot-machine-insert-coin.mp3')),
       }
     }
   },
@@ -104,11 +103,8 @@ export default {
         const v2 = this.resultData[1]
         const v3 = this.resultData[2]
         if(v1.name === v2.name && v2.name === v3.name) {
-          if (v1.value >= 8) {
-            this.audio.bigwin.play()
-          } else {
-            this.audio.win.play()
-          }
+          this.audio.win.play()
+          
           this.win += v1.value
           this.waslocked = true // prevent lock after an unlocked win
         } else {
@@ -117,7 +113,6 @@ export default {
           const bar2 = v2.name === 'Bar'
           const bar3 = v3.name === 'Bar'
           if (bar1 && bar2 || bar1 && bar3 || bar2 && bar3) {
-            this.audio.bigwin.play()
             this.win += 18
             this.waslocked = true // prevent lock after an unlocked win
           } else if (bar1 || bar2 || bar3) {

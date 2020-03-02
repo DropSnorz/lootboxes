@@ -18,11 +18,11 @@ export default {
     return {
       momentum: null,
       audio: {
-        bar: new Audio('https://freesound.org/data/previews/0/707_207-lq.mp3'),
-        barWin: new Audio('https://freesound.org/data/previews/337/337049_3232293-lq.mp3'),
-        spin: new Audio('https://freesound.org/data/previews/120/120373_824230-lq.mp3'),
-        spinEnd: new Audio('https://freesound.org/data/previews/145/145441_2615119-lq.mp3'),
-        lock: new Audio('https://freesound.org/data/previews/56/56246_91374-lq.mp3')
+        bar: new Audio(require('@/assets/sounds/slot-machine-bar.mp3')),
+        barWin: new Audio(require('@/assets/sounds/slot-machine-barwin.mp3')),
+        spin: new Audio(require('@/assets/sounds/slot-machine-spin.mp3')),
+        spinEnd: new Audio(require('@/assets/sounds/slot-machine-spinend.mp3')),
+        lock: new Audio(require('@/assets/sounds/slot-machine-lock.mp3'))
       },
       reelTileCount: 15,
       reelTileData: null,
